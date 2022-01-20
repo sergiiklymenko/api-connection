@@ -1,0 +1,22 @@
+<div *ngIf="data" class="card" aria-hidden="true">
+  <img *ngIf="data.image" class="card-img-top" alt="no image">
+  <div class="card-body">
+    <div
+      class="card-title">
+      <span class="col-6">{{data.title}}</span>
+    </div>
+    <div
+      class="card-text">
+      <span class="col-7">{{data.body}}</span>
+      <span class="col-4">{{data.user_id}}</span>
+      <span class="col-4">{{data.id}}</span>
+    </div>
+    <app-anchor [href]="'posts/'+data.id">
+      <div>
+        <button class="btn btn-primary">Details</button>
+      </div>
+    </app-anchor>
+  </div>
+</div>
+
+
