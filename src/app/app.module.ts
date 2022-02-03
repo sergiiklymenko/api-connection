@@ -11,6 +11,8 @@ import {SharedModule} from "./__shared/shared.module";
 import {HttpClientModule} from "@angular/common/http";
 import {UsersModule} from "./users/users.module";
 import {CommentsModule} from "./comments/comments.module";
+import {GalleryModule} from "./gallery/gallery.module";
+import {NewsModule} from "./news/news.module";
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import {CommentsModule} from "./comments/comments.module";
     UsersModule,
     PostsModule,
     CommentsModule,
+    GalleryModule,
+    NewsModule,
     AppRoutingModule,
   ],
   providers: [],

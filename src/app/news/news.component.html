@@ -1,0 +1,15 @@
+<div>News works here!</div>
+<div *ngIf="news">
+  <div *ngFor="let topic of news" class="card news-topic">
+    <img class="card-img-top" src="{{topic.urlToImage}}" alt="Card image cap">
+    <div class="card-body">
+      <div
+        class="card-title text-danger bg-dark text-center">
+        <span>{{topic.title}}</span>
+      </div>
+      <div class="card-text text-center">
+        <div class="card-text">{{topic.content}}</div>
+      </div>
+    </div>
+  </div>
+</div>
