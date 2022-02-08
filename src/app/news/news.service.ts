@@ -9,6 +9,6 @@ export class NewsService {
   }
 
   getNews() {
-    return this.httpService.get('https://newsapi.org/v2/everything?q=tesla&from=2022-01-02&sortBy=publishedAt&apiKey=e286d4565d1b40b5b1cadf4dca9d1d68');
+    return this.httpService.get('https://newsapi.org/v2/everything?q=tesla&from=2022-01-05&sortBy=publishedAt&apiKey=e286d4565d1b40b5b1cadf4dca9d1d68');
   }
 }

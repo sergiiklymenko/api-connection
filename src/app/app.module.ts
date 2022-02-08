@@ -13,6 +13,7 @@ import {UsersModule} from "./users/users.module";
 import {CommentsModule} from "./comments/comments.module";
 import {GalleryModule} from "./gallery/gallery.module";
 import {NewsModule} from "./news/news.module";
+import {NgxGalleryModule} from "ngx-gallery";
 
 @NgModule({
   declarations: [

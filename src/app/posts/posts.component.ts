@@ -14,17 +14,15 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('PostOnInit');
     this.redirect()
+    console.log('PostOnInit');
   }
 
   redirect() {
-    this.router.events.subscribe((e) => {
-      if (e instanceof NavigationEnd) {
-        if (this.router.url === '/posts') {
-          this.router.navigateByUrl('posts/list');
-        }
-      }
-    });
+    if (this.router.url === '/posts') {
+      this.router.navigateByUrl('posts/list');
+    }
   }
 
 }

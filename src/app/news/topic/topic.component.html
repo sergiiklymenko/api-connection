@@ -1,0 +1,17 @@
+<div>Topic Component works!</div>
+<div *ngIf="topicList">
+  <div class="card news-topic">
+    <img class="card-img-top" src="{{topicList.urlToImage}}" alt="Card image cap">
+    <div class="card-body">
+      <app-anchor [href]="'news/'+indexNews+'/details'">
+        <div
+          class="card-title text-danger bg-dark text-center">
+          <span>{{topicList.title}}</span>
+        </div>
+      </app-anchor>
+      <div class="card-text text-center">
+        <div class="card-text">{{topicList.content}}</div>
+      </div>
+    </div>
+  </div>
+</div>

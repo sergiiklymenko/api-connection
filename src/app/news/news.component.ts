@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {NewsService} from "./news.service";
-import {ApiData, NewsInterface} from "./news.interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-news',
@@ -9,15 +8,20 @@ import {ApiData, NewsInterface} from "./news.interface";
 })
 
 export class NewsComponent implements OnInit {
-  news: NewsInterface[] | undefined;
 
-  constructor(private newsService: NewsService) {
+
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
-    this.newsService.getNews().subscribe( (obj: ApiData) => {
-      console.log(obj.articles)
-      this.news = obj.articles;
-    })
+    this.redirect();
   }
+
+  redirect() {
+    if (this.router.url === '/news') {
+      this.router.navigateByUrl('news/topic-list');
+    }
+  }
+
+
 }
