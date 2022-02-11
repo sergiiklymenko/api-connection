@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions} from "ngx-gallery";
+import {RxjsService} from "./__core/rxjs/rxjs.service";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,14 @@ export class AppComponent implements OnInit {
   galleryOptions?: NgxGalleryOptions[];
   galleryImages?: NgxGalleryImage[];
 
+  constructor(private rxjsService: RxjsService) {
+  }
+
   ngOnInit() {
+    this.rxjsService.testService();
+  }
+
+  setGallery() {
     this.galleryOptions = [
       {
         width: '600px',
@@ -54,6 +62,5 @@ export class AppComponent implements OnInit {
       }
     ];
   }
-
 
 }
