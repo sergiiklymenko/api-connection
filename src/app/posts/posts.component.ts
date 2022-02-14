@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {NavigationEnd, Router} from "@angular/router";
 import {RxjsService} from "../__core/rxjs/rxjs.service";
-import {from, interval, map, Observable, of, tap} from "rxjs";
+import {from, interval, map, Observable, of, Subject, tap} from "rxjs";
 
 @Component({
   selector: 'app-posts',
@@ -25,7 +25,8 @@ export class PostsComponent implements OnInit {
     // this.ofOperator();
     // this.mapOperator();
     // this.tapOperator();
-    this.subscriptionTest();
+    // this.subscriptionTest();
+    this.subjectTest();
   }
 
   redirect() {
@@ -59,11 +60,8 @@ export class PostsComponent implements OnInit {
   }
 
   tapOperator() {
-
     const arr = [1, 2, 3];
-
     const fromArr$ = from(arr);
-
     fromArr$
       .pipe(tap((value) => console.log("Received value: ", value)))
       .subscribe((value) => console.log(`Emitted Values: `, value));
@@ -82,6 +80,18 @@ export class PostsComponent implements OnInit {
       // Unsubscribes BOTH subscription and childSubscription
       subscription.unsubscribe();
     }, 1000);
+  }
+
+  subjectTest() {
+    const subject = new Subject<number>();
+    subject.subscribe({
+      next: (v) => console.log(`observerA: ${v}`)
+    });
+    subject.subscribe({
+      next: (v) => console.log(`observerB: ${v}`)
+    });
+    subject.next(1);
+    subject.next(2);
   }
 
 }

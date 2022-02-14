@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ApiResult, CardInterface} from "../card/card.interface";
 import {PostsService} from "../posts.service";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-list',
@@ -9,6 +10,7 @@ import {PostsService} from "../posts.service";
 
 export class ListComponent implements OnInit {
   cards: CardInterface[] | undefined | any;
+  newInventory: any;
 
   constructor(private postsService: PostsService) {
   }
@@ -18,5 +20,10 @@ export class ListComponent implements OnInit {
       this.cards = obj.data;
     })
   }
+
+  // outputPosts(data: any) {
+  //   console.log('Output', data);
+  // }
+
 
 }
