@@ -1,2 +1,2 @@
-<app-card [data]="data" [(status)]="newInventory" *ngFor="let data of cards"></app-card>
+<app-card [data]="data" (status)="receiveStatusList($event)" *ngFor="let data of cards"></app-card>
 

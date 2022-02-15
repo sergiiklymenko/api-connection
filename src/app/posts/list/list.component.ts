@@ -25,5 +25,10 @@ export class ListComponent implements OnInit {
   //   console.log('Output', data);
   // }
 
+  receiveStatusList(newStatusList: string) {
+    // this.newInventory = newStatusList;
+    console.log('new Status in the list component '+ newStatusList)
+  }
+
 
 }

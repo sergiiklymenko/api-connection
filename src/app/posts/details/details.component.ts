@@ -8,9 +8,10 @@ import {ApiResult, CardInterface} from "../card/card.interface";
   templateUrl: 'details.component.html'
 })
 
-export class DetailsComponent implements OnInit{
+export class DetailsComponent implements OnInit {
   id = '';
   data: CardInterface | undefined;
+  newDetailsStatus = '';
 
 
   constructor(private route: ActivatedRoute,
@@ -29,12 +30,17 @@ export class DetailsComponent implements OnInit{
     this.postsService.getPosts().subscribe((obj: ApiResult) => {
       console.log(obj.data);
       obj.data.forEach((data: CardInterface) => {
-        if (''+data.id === ''+this.id) {
+        if ('' + data.id === '' + this.id) {
           console.log(data.id)
           this.data = data;
         }
       })
     });
+  }
+
+  receiveStatus(newStatus: string) {
+    this.newDetailsStatus = newStatus;
+    console.log('Current status is: ', newStatus)
   }
 
 

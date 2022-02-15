@@ -1,23 +1,25 @@
-import {Component, Input, OnInit, Output, EventEmitter} from "@angular/core";
+import {Component, Input, OnInit, Output, EventEmitter, OnChanges} from "@angular/core";
 import {CardInterface} from "./card.interface";
-import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html'
 })
 
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnChanges {
   @Input() data: CardInterface | undefined | any;
   @Output() status = new EventEmitter<string>();
 
   ngOnInit() {
-    this.getStatus();
+    // this.getStatus('working');
+    // console.log('this is OnInit data ', this.data)
   }
 
-  getStatus() {
-    setTimeout(() => {
-      this.status.emit('Sergey');
-    }, 3000)
+  ngOnChanges() {
+    // console.log('this is OnChanges data ', this.data)
+  }
+
+  getStatus(value: string) {
+    this.status.emit(value);
   }
 }

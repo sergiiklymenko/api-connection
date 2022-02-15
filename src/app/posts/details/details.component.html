@@ -1,2 +1,5 @@
-<app-card [data]="data" *ngIf="data"></app-card>
+<app-card [data]="data" (status)="receiveStatus($event)" *ngIf="data"></app-card>
+<p>
+Here is the test area {{newDetailsStatus}}
+</p>
 <app-disqus></app-disqus>

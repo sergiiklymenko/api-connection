@@ -13,7 +13,7 @@
     </div>
     <app-anchor [href]="'posts/'+data.id">
       <div>
-        <button class="btn btn-primary">Details</button>
+        <button class="btn btn-primary" (click)="getStatus('working')">Details</button>
       </div>
     </app-anchor>
   </div>
