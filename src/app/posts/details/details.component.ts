@@ -12,6 +12,7 @@ export class DetailsComponent implements OnInit {
   id = '';
   data: CardInterface | undefined;
   newDetailsStatus = '';
+  newMessage = ''
 
 
   constructor(private route: ActivatedRoute,
@@ -24,6 +25,9 @@ export class DetailsComponent implements OnInit {
         this.id = params['id']
         this.findCorrectPost();
       });
+    this.postsService.messageEmitter.subscribe( (message) => {
+      console.log(message);
+    })
   }
 
   findCorrectPost() {
@@ -41,6 +45,10 @@ export class DetailsComponent implements OnInit {
   receiveStatus(newStatus: string) {
     this.newDetailsStatus = newStatus;
     console.log('Current status is: ', newStatus)
+  }
+
+  clickIt(event: any) {
+    console.log('My new event', event)
   }
 
 
