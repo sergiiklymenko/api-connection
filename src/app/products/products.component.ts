@@ -11,17 +11,11 @@ import {StorageService} from "../__core/storage/storage.service";
 })
 
 export class ProductsComponent implements OnInit {
-  itemCount = 0;
-  itemsInTheCart: number | undefined;
-  products: ProductsInterface[] = [];
-  status = true;
+  productList: ProductsInterface[] = [];
   static increaseKey = 'increaseKey';
   static decreaseKey = 'decreaseKey';
 
-  constructor(private productsService: ProductsService,
-              private itemService: ItemService,
-              private storage: StorageService,
-              private broadcaster: BroadcasterService) {
+  constructor(private productsService: ProductsService) {
   }
 
   ngOnInit() {
@@ -31,18 +25,10 @@ export class ProductsComponent implements OnInit {
   getProducts() {
     this.productsService.setProducts().subscribe((items: ProductsInterface[]) => {
       console.log('Product Items ', items)
-      this.products = items;
+      this.productList = items;
     })
   }
 
-  onAddToCart() {
-    this.broadcaster.emit(ProductsComponent.increaseKey);
-    this.status = false;
-  }
 
-  removeFromCart() {
-    this.broadcaster.emit(ProductsComponent.decreaseKey);
-    this.status = true;
-  }
 
 }

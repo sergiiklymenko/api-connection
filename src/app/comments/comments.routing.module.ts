@@ -10,7 +10,7 @@ import {DetailsComponent} from "./details/details.component";
         component: CommentsComponent,
       },
       {
-        path: 'comments/:id/details',
+        path: 'comments/:id/product-card',
         component: DetailsComponent
       }
     ]

@@ -1,0 +1,21 @@
+<div *ngIf="item">
+  <div class="col-6 offset-3 text-center">
+    <div>Product List</div>
+    <div class="card mb-2">
+      <div class="card-title text-info bg-dark">
+        <span>{{item.title}}</span>
+      </div>
+      <div class="card-text">
+        <span>{{item.description}}</span>
+        <hr>
+        <span>{{item.date}}</span>
+      </div>
+      <div *ngIf="status">
+        <button class="btn btn-primary" (click)="onAddToCart()">Add To Cart</button>
+      </div>
+      <div *ngIf="!status">
+        <button class="btn btn-primary" (click)="removeFromCart()">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>

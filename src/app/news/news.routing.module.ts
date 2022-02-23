@@ -15,7 +15,7 @@ import {DetailsComponent} from "./details/details.component";
       component: TopicListComponent
     },
     {
-      path: 'news/:id/details',
+      path: 'news/:id/product-card',
       component: DetailsComponent
     }
   ])],
