@@ -2681,7 +2681,7 @@
   var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
   var DATA_FA_I2SVG = 'data-fa-i2svg';
   var DATA_FA_PSEUDO_ELEMENT = 'data-fa-pseudo-element';
-  var DATA_FA_PSEUDO_ELEMENT_PENDING = 'data-fa-pseudo-element-pending';
+  var DATA_FA_PSEUDO_ELEMENT_PENDING = 'userService-fa-pseudo-element-pending';
   var DATA_PREFIX = 'data-prefix';
   var DATA_ICON = 'data-icon';
   var HTML_CLASS_I2SVG_BASE_CLASS = 'fontawesome-i2svg';
@@ -2746,7 +2746,7 @@
   };
   var oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   var oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-  var ATTRIBUTES_WATCHED_FOR_MUTATION = ['class', 'data-prefix', 'data-icon', 'data-fa-transform', 'data-fa-mask'];
+  var ATTRIBUTES_WATCHED_FOR_MUTATION = ['class', 'data-prefix', 'data-icon', 'userService-fa-transform', 'userService-fa-mask'];
   var DUOTONE_CLASSES = {
     GROUP: 'duotone-group',
     SWAP_OPACITY: 'swap-opacity',
@@ -2772,7 +2772,7 @@
   function coerce(val) {
     // Getting an empty string will occur if the attribute is set on the HTML tag but without a value
     // We'll assume that this is an indication that it should be toggled to true
-    // For example <script data-search-pseudo-elements src="..."></script>
+    // For example <script userService-search-pseudo-elements src="..."></script>
     if (val === '') return true;
     if (val === 'false') return false;
     if (val === 'true') return true;
@@ -2780,7 +2780,7 @@
   }
 
   if (DOCUMENT && typeof DOCUMENT.querySelector === 'function') {
-    var attrs = [['data-family-prefix', 'familyPrefix'], ['data-style-default', 'styleDefault'], ['data-replacement-class', 'replacementClass'], ['data-auto-replace-svg', 'autoReplaceSvg'], ['data-auto-add-css', 'autoAddCss'], ['data-auto-a11y', 'autoA11y'], ['data-search-pseudo-elements', 'searchPseudoElements'], ['data-observe-mutations', 'observeMutations'], ['data-mutate-approach', 'mutateApproach'], ['data-keep-original-source', 'keepOriginalSource'], ['data-measure-performance', 'measurePerformance'], ['data-show-missing-icons', 'showMissingIcons']];
+    var attrs = [['userService-family-prefix', 'familyPrefix'], ['userService-style-default', 'styleDefault'], ['userService-replacement-class', 'replacementClass'], ['userService-auto-replace-svg', 'autoReplaceSvg'], ['userService-auto-add-css', 'autoAddCss'], ['userService-auto-a11y', 'autoA11y'], ['userService-search-pseudo-elements', 'searchPseudoElements'], ['userService-observe-mutations', 'observeMutations'], ['userService-mutate-approach', 'mutateApproach'], ['userService-keep-original-source', 'keepOriginalSource'], ['userService-measure-performance', 'measurePerformance'], ['userService-show-missing-icons', 'showMissingIcons']];
     attrs.forEach(function (_ref) {
       var _ref2 = _slicedToArray(_ref, 2),
           attr = _ref2[0],
@@ -4379,7 +4379,7 @@
       return acc;
     }, {});
     var title = node.getAttribute('title');
-    var titleId = node.getAttribute('data-fa-title-id');
+    var titleId = node.getAttribute('userService-fa-title-id');
 
     if (config.autoA11y) {
       if (title) {
@@ -4430,7 +4430,7 @@
     return _objectSpread2({
       iconName: iconName,
       title: node.getAttribute('title'),
-      titleId: node.getAttribute('data-fa-title-id'),
+      titleId: node.getAttribute('userService-fa-title-id'),
       prefix: prefix,
       transform: meaninglessTransform,
       mask: {
@@ -5121,7 +5121,7 @@
     hooks: function hooks() {
       return {
         parseNodeAttributes: function parseNodeAttributes(accumulator, node) {
-          var transformString = node.getAttribute('data-fa-transform');
+          var transformString = node.getAttribute('userService-fa-transform');
 
           if (transformString) {
             accumulator.transform = parseTransformString(transformString);
@@ -5200,7 +5200,7 @@
     hooks: function hooks() {
       return {
         parseNodeAttributes: function parseNodeAttributes(accumulator, node) {
-          var maskData = node.getAttribute('data-fa-mask');
+          var maskData = node.getAttribute('userService-fa-mask');
           var mask = !maskData ? emptyCanonicalIcon() : getCanonicalIcon(maskData.split(' ').map(function (i) {
             return i.trim();
           }));
@@ -5210,7 +5210,7 @@
           }
 
           accumulator.mask = mask;
-          accumulator.maskId = node.getAttribute('data-fa-mask-id');
+          accumulator.maskId = node.getAttribute('userService-fa-mask-id');
           return accumulator;
         }
       };
@@ -5393,7 +5393,7 @@
     hooks: function hooks() {
       return {
         parseNodeAttributes: function parseNodeAttributes(accumulator, node) {
-          var symbolData = node.getAttribute('data-fa-symbol');
+          var symbolData = node.getAttribute('userService-fa-symbol');
           var symbol = symbolData === null ? false : symbolData === '' ? true : symbolData;
           accumulator['symbol'] = symbol;
           return accumulator;

@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
+import {BroadcasterService} from "../__core/broadcaster/broadcaster.service";
 
 @Component({
   selector: 'app-news',

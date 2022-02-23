@@ -19,8 +19,8 @@ export class PostsComponent implements OnInit {
     console.log('PostOnInit');
     this.redirect()
     console.log('PostOnInit');
-    // this.rxjsService.getRequest('https://dodevcode.com:4488/other/ConfigData').subscribe((data) => {
-    //   console.log('This is subscriber data: ', data);
+    // this.rxjsService.getRequest('https://dodevcode.com:4488/other/ConfigData').subscribe((userService) => {
+    //   console.log('This is subscriber userService: ', userService);
     // })
     // this.ofOperator();
     // this.mapOperator();

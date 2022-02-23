@@ -16,11 +16,11 @@ export class CardComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     // this.getStatus('working');
-    // console.log('this is OnInit data ', this.data)
+    // console.log('this is OnInit userService ', this.userService)
   }
 
   ngOnChanges() {
-    // console.log('this is OnChanges data ', this.data)
+    // console.log('this is OnChanges userService ', this.userService)
   }
 
   getStatus(value: string) {

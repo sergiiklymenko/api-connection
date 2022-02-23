@@ -13,7 +13,9 @@ import {UsersModule} from "./users/users.module";
 import {CommentsModule} from "./comments/comments.module";
 import {GalleryModule} from "./gallery/gallery.module";
 import {NewsModule} from "./news/news.module";
-import {NgxGalleryModule} from "ngx-gallery";
+import {LoginModule} from "./login/login.module";
+import {CartModule} from "./cart/cart.module";
+import {ProductsModule} from "./products/products.module";
 
 @NgModule({
   declarations: [
@@ -26,15 +28,20 @@ import {NgxGalleryModule} from "ngx-gallery";
     HttpClientModule,
     CoreModule,
     SharedModule,
+    LoginModule,
+    CartModule,
     UsersModule,
     PostsModule,
     CommentsModule,
     GalleryModule,
     NewsModule,
+    ProductsModule,
     AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {
 }

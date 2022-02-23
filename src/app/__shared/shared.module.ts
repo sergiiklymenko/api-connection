@@ -7,6 +7,9 @@ import {AnchorComponent} from "./anchor/anchor.component";
 import {BreadcrumbComponent} from "./breadcrumb/breadcrumb.component";
 import {DisqusComponent} from "./disqus/disqus.component";
 import {DisqusModule} from "ngx-disqus";
+import {LoginComponent} from "../login/login.component";
+import {CommonModule} from "@angular/common";
+import {CartModule} from "../cart/cart.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +21,11 @@ import {DisqusModule} from "ngx-disqus";
     BreadcrumbComponent,
     DisqusComponent
   ],
-  imports: [DisqusModule.forRoot('serg-3')],
+  imports: [
+    CommonModule,
+    DisqusModule.forRoot('serg-3'),
+    CartModule
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,

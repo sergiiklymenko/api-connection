@@ -21,8 +21,8 @@ export class ListComponent implements OnInit {
     })
   }
 
-  // outputPosts(data: any) {
-  //   console.log('Output', data);
+  // outputPosts(userService: any) {
+  //   console.log('Output', userService);
   // }
 
   receiveStatusList(newStatusList: string) {

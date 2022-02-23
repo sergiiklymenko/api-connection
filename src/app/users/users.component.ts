@@ -27,7 +27,7 @@ export class UsersComponent implements OnInit {
       // console.table(this.users);
     })
     this.getAllData().subscribe((data: any) => {
-      console.log('all data', data)
+      console.log('all userService', data)
     })
   }
 

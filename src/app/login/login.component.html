@@ -1,0 +1,25 @@
+<div class="text-danger bg-dark text-center ">Login Page</div>
+<div class="card-body align-items-center">
+  <span>Welcome Back</span>
+  <div class="row mt-2">
+    <div class="col-md-3">
+      <div class="d-flex">
+        <input class="form-control" type="text" name="username" placeholder="Login" [(ngModel)]="login">
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-3">
+      <div class="d-flex">
+        <input class="form-control" type="password" name="password" placeholder="Password" [(ngModel)]="password">
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-3">
+      <button class="btn btn-primary" (click)="onSubmit()">Login</button>
+    </div>
+  </div>
+</div>
+
+<hr>

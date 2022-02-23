@@ -1,3 +1,17 @@
-<div id="header">
-  <app-menu></app-menu>
+<div class="row">
+  <div class="col-8">
+    <div id="header">
+      <app-menu></app-menu>
+    </div>
+  </div>
+  <div class="col-1">
+    <app-cart></app-cart>
+  </div>
+  <div class="col-3">
+    <div *ngIf="login" class="text-info bg-secondary p-2">
+      Hello, {{login}}
+      <a class="btn btn-outline-primary" href="/login" (click)="logout($event)">Logout</a>
+    </div>
+  </div>
 </div>
+

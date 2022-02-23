@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ApiDataInterface, NewsInterface} from "../news.interface";
 import {NewsService} from "../news.service";
+import {BroadcasterService} from "../../__core/broadcaster/broadcaster.service";
 
 @Component({
   selector: 'app-topic-list',
@@ -10,7 +11,8 @@ import {NewsService} from "../news.service";
 export class TopicListComponent implements OnInit {
   news: NewsInterface[] = [];
 
-  constructor(private newsService: NewsService) {
+  constructor(private newsService: NewsService,
+              private broadcasterService: BroadcasterService) {
   }
 
   ngOnInit() {
@@ -19,7 +21,8 @@ export class TopicListComponent implements OnInit {
       this.news = obj.articles;
       this.handleId();
       console.log('News', this.news)
-    })
+    });
+    this.broadcasterService.emit('title', 'Here is News');
   }
 
   handleId() {

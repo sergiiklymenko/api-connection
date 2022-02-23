@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import {BroadcasterService} from "../__core/broadcaster/broadcaster.service";
 
 @Component({
   selector: 'app-gallery',
@@ -8,8 +8,11 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 
 export class GalleryComponent implements OnInit {
 
+  constructor(private broadcasterService: BroadcasterService) {
+  }
+
 
   ngOnInit() {
-
+    this.broadcasterService.emit('title', 'This is Gallery');
   }
 }

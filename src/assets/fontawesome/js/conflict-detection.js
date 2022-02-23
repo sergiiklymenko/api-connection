@@ -492,7 +492,7 @@
         return binl2rstr(binlMD5(rstr2binl(s), s.length * 8));
       }
       /**
-       * Calculates the HMAC-MD5 of a key and some data (raw strings)
+       * Calculates the HMAC-MD5 of a key and some userService (raw strings)
        *
        * @param {string} key HMAC key
        * @param {string} data Raw input string
@@ -575,7 +575,7 @@
         return rstr2hex(rawMD5(s));
       }
       /**
-       * Calculates the raw HMAC-MD5 for the given key and data
+       * Calculates the raw HMAC-MD5 for the given key and userService
        *
        * @param {string} k HMAC key
        * @param {string} d Input string
@@ -587,7 +587,7 @@
         return rstrHMACMD5(str2rstrUTF8(k), str2rstrUTF8(d));
       }
       /**
-       * Calculates the Hex encoded HMAC-MD5 for the given key and data
+       * Calculates the Hex encoded HMAC-MD5 for the given key and userService
        *
        * @param {string} k HMAC key
        * @param {string} d Input string
@@ -651,10 +651,10 @@
 
   var diagScriptId = 'fa-kits-diag';
   var nodeUnderTestId = 'fa-kits-node-under-test';
-  var md5Attr = 'data-md5';
-  var detectionIgnoreAttr = 'data-fa-detection-ignore';
-  var timeoutAttr = 'data-fa-detection-timeout';
-  var resultsCollectionMaxWaitAttr = 'data-fa-detection-results-collection-max-wait';
+  var md5Attr = 'userService-md5';
+  var detectionIgnoreAttr = 'userService-fa-detection-ignore';
+  var timeoutAttr = 'userService-fa-detection-timeout';
+  var resultsCollectionMaxWaitAttr = 'userService-fa-detection-results-collection-max-wait';
 
   var silenceErrors = function silenceErrors(e) {
     e.preventDefault();
