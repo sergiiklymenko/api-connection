@@ -14,7 +14,7 @@ export class ProductsComponent implements OnInit {
   itemCount = 0;
   itemsInTheCart: number | undefined;
   products: ProductsInterface[] = [];
-  status = false;
+  status = true;
   static increaseKey = 'increaseKey';
   static decreaseKey = 'decreaseKey';
 
@@ -37,12 +37,12 @@ export class ProductsComponent implements OnInit {
 
   onAddToCart() {
     this.broadcaster.emit(ProductsComponent.increaseKey);
-    this.status = true;
+    this.status = false;
   }
 
   removeFromCart() {
     this.broadcaster.emit(ProductsComponent.decreaseKey);
-    this.status = false;
+    this.status = true;
   }
 
 }

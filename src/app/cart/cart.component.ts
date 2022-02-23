@@ -11,7 +11,7 @@ import {ItemService} from "../__core/itemService/item.service";
 })
 
 export class CartComponent implements OnInit, OnDestroy {
-  size: any;
+  size = 0;
   subscription: Subscription = new Subscription();
 
 
@@ -47,7 +47,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   deleteFromCart() {
     this.itemService.removeData();
-    this.size = undefined;
+    this.size = 0;
   }
 
 }
