@@ -1,9 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {ProductsInterface} from "./products.interface";
 import {ProductsService} from "./products.service";
-import {ItemService} from "../__core/itemService/item.service";
-import {BroadcasterService} from "../__core/broadcaster/broadcaster.service";
-import {StorageService} from "../__core/storage/storage.service";
 
 @Component({
   selector: 'app-products',
@@ -12,7 +9,7 @@ import {StorageService} from "../__core/storage/storage.service";
 
 export class ProductsComponent implements OnInit {
   productList: ProductsInterface[] = [];
-  static increaseKey = 'increaseKey';
+  static updateCart = 'updateCart';
   static decreaseKey = 'decreaseKey';
 
   constructor(private productsService: ProductsService) {

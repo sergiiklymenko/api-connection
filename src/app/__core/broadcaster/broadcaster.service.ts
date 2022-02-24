@@ -18,7 +18,7 @@ export class BroadcasterService {
     this.eventBus.next({key, data})
   }
 
-  on<T>(key: string): Observable<T> {
+  on<T>(key: string): Observable<any> {
     return this.eventBus.asObservable().pipe(
       filter(event => event.key === key)
     ).pipe(

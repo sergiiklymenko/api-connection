@@ -39,10 +39,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // event.preventDefault();
   }
 
-  goToCart() {
-
-  }
-
 
 }
 

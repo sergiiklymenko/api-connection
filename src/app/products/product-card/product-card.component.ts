@@ -3,6 +3,7 @@ import {ItemService} from "../../__core/itemService/item.service";
 import {StorageService} from "../../__core/storage/storage.service";
 import {BroadcasterService} from "../../__core/broadcaster/broadcaster.service";
 import {ProductsComponent} from "../products.component";
+import {CartComponent} from "../../cart/cart.component";
 
 @Component({
   selector: 'app-product-card',
@@ -19,15 +20,18 @@ export class ProductCardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.resetButtons();
   }
 
-  onAddToCart() {
-    this.broadcaster.emit(ProductsComponent.increaseKey);
-    this.status = false;
+  onUpdateCart() {
+    this.status = !this.status;
+    this.broadcaster.emit(ProductsComponent.updateCart, this.status);
   }
 
-  removeFromCart() {
-    this.broadcaster.emit(ProductsComponent.decreaseKey);
-    this.status = true;
+  resetButtons() {
+    this.broadcaster.on(CartComponent.resetCart).subscribe(()=> {
+      this.status = true;
+    })
   }
+
 }

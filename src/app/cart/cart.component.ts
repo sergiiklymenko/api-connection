@@ -13,6 +13,7 @@ import {ItemService} from "../__core/itemService/item.service";
 export class CartComponent implements OnInit, OnDestroy {
   size = 0;
   subscription: Subscription = new Subscription();
+  static resetCart = 'clearCart';
 
 
   constructor(private broadcaster: BroadcasterService,
@@ -21,33 +22,25 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.decreaseItemsInCart();
-    this.increaseItemsInCart();
+    this.updateItemsInCart();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  increaseItemsInCart() {
-    this.subscription.add(this.broadcaster.on(ProductsComponent.increaseKey).subscribe(() => {
-      this.size++;
+  updateItemsInCart() {
+    this.subscription.add(this.broadcaster.on(ProductsComponent.updateCart).subscribe((status: boolean) => {
+      !status ? this.size++ : this.size--;
       this.itemService.setData(this.size);
       console.log('Items in the cart', this.size);
     }));
   }
 
-  decreaseItemsInCart() {
-    this.subscription.add(this.broadcaster.on(ProductsComponent.decreaseKey).subscribe(() => {
-      this.size--;
-      this.itemService.setData(this.size);
-      console.log('Items in the cart', this.size);
-    }))
-  }
-
-  deleteFromCart() {
+  clearCart() {
     this.itemService.removeData();
     this.size = 0;
+    this.broadcaster.emit(CartComponent.resetCart);
   }
 
 }
