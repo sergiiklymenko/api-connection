@@ -3,7 +3,7 @@ import {ItemService} from "../../__core/itemService/item.service";
 import {StorageService} from "../../__core/storage/storage.service";
 import {BroadcasterService} from "../../__core/broadcaster/broadcaster.service";
 import {ProductsComponent} from "../products.component";
-import {CartComponent} from "../../cart/cart.component";
+import {CartComponent} from "../../__shared/cart/cart.component";
 
 @Component({
   selector: 'app-product-card',
@@ -13,10 +13,10 @@ import {CartComponent} from "../../cart/cart.component";
 export class ProductCardComponent implements OnInit {
   status = true;
   @Input() item: any;
+  static cartCount = 'cartCount';
 
-  constructor(  private itemService: ItemService,
-                private storage: StorageService,
-                private broadcaster: BroadcasterService) {
+  constructor(private storage: StorageService,
+              private broadcaster: BroadcasterService) {
   }
 
   ngOnInit() {
@@ -26,10 +26,13 @@ export class ProductCardComponent implements OnInit {
   onUpdateCart() {
     this.status = !this.status;
     this.broadcaster.emit(ProductsComponent.updateCart, this.status);
+    const itemArr = this.storage.getData(ProductCardComponent.cartCount) || [];
+    itemArr.push(this.item);
+    this.storage.setData(ProductCardComponent.cartCount, itemArr);
   }
 
   resetButtons() {
-    this.broadcaster.on(CartComponent.resetCart).subscribe(()=> {
+    this.broadcaster.on(CartComponent.resetCart).subscribe(() => {
       this.status = true;
     })
   }

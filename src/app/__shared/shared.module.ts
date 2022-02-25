@@ -9,7 +9,7 @@ import {DisqusComponent} from "./disqus/disqus.component";
 import {DisqusModule} from "ngx-disqus";
 import {LoginComponent} from "../login/login.component";
 import {CommonModule} from "@angular/common";
-import {CartModule} from "../cart/cart.module";
+import {CartModule} from "./cart/cart.module";
 
 @NgModule({
   declarations: [

@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {ProductsInterface} from "../products/products.interface";
-import {ProductsComponent} from "../products/products.component";
+import {ProductsInterface} from "../../products/products.interface";
+import {ProductsComponent} from "../../products/products.component";
 import {Subscription} from "rxjs";
-import {BroadcasterService} from "../__core/broadcaster/broadcaster.service";
-import {ItemService} from "../__core/itemService/item.service";
+import {BroadcasterService} from "../../__core/broadcaster/broadcaster.service";
+import {ItemService} from "../../__core/itemService/item.service";
 
 @Component({
   selector: 'app-cart',
@@ -13,6 +13,7 @@ import {ItemService} from "../__core/itemService/item.service";
 export class CartComponent implements OnInit, OnDestroy {
   size = 0;
   subscription: Subscription = new Subscription();
+  cartItem: any;
   static resetCart = 'clearCart';
 
 
