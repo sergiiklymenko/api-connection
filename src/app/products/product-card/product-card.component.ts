@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {ItemService} from "../../__core/itemService/item.service";
 import {StorageService} from "../../__core/storage/storage.service";
 import {BroadcasterService} from "../../__core/broadcaster/broadcaster.service";
 import {ProductsComponent} from "../products.component";
@@ -12,6 +11,7 @@ import {CartComponent} from "../../__shared/cart/cart.component";
 
 export class ProductCardComponent implements OnInit {
   status = true;
+  @Input() index = 0;
   @Input() item: any;
   static cartCount = 'cartCount';
 
@@ -27,7 +27,11 @@ export class ProductCardComponent implements OnInit {
     this.status = !this.status;
     this.broadcaster.emit(ProductsComponent.updateCart, this.status);
     const itemArr = this.storage.getData(ProductCardComponent.cartCount) || [];
-    itemArr.push(this.item);
+    if (!this.status) {
+      itemArr[this.index] = this.item;
+    } else {
+      delete itemArr[this.index];
+    }
     this.storage.setData(ProductCardComponent.cartCount, itemArr);
   }
 

@@ -1,8 +1,8 @@
-<div class="col-1">
+<div>
   <div *ngIf="size">
-    Cart ({{size}})
+    ({{size}})
   </div>
   <div *ngIf="size">
-    <button class="btn btn-primary" (click)="clearCart()">Remove All</button>
+    <button class="btn-sm btn-danger" (click)="clearCart()">Clear</button>
   </div>
 </div>
