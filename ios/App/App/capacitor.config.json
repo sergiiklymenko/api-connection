@@ -1,0 +1,6 @@
+{
+	"appId": "com.serg.app",
+	"appName": "apiconnection",
+	"webDir": "dist/apiconnection",
+	"bundledWebRuntime": false
+}
